@@ -6,3 +6,9 @@
 #define override
 #define final 
 #endif
+#if cpp11
+#define foreach(A,B) for(A:B)
+#else
+#include <boost/foreach.hpp>
+#define foreach BOOST_FOREACH
+#endif

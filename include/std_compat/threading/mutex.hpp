@@ -6,7 +6,7 @@
   #include <mutex>
   #define mutex_namespace std
   #define lock_namespace std
-#endif
+#else
   #include <boost/thread/mutex.hpp>
   #include <boost/thread/recursive_mutex.hpp>
   #include <boost/thread/locks.hpp>
@@ -15,7 +15,7 @@
 #endif
 
 
-namespace cpp_compat
+namespace std_compat
 {
   using mutex_namespace::mutex;
   using mutex_namespace::recursive_mutex;
