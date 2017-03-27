@@ -17,5 +17,12 @@ endif()
 if(MSVC)
   add_compile_options(/std:c++latest)
 endif()
+
+file(GLOB example_sources RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ./*.cpp)
+message(STATUS "generating example projects:")
+foreach(example_src ${example_sources})
+  string(REPLACE ".cpp" "" example_name ${example_src})
+  message(STATUS "  Creating project ${example_name}")
+  add_executable(${example_name} ${example_src})
+endforeach(example_src)
 #optional example
-add_executable(optional_example optional.cpp)
