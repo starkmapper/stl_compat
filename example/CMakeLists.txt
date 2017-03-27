@@ -1,0 +1,21 @@
+cmake_minimum_required(VERSION 2.6)
+
+project(Examples)
+include_directories(../include)
+if(BORLAND)
+  add_compile_options(-H -y -v -6 -Q)
+  link_libraries(-lv -ls)
+  if (CG_BOOST_ROOT)
+    set(BOOST_ROOT "${CG_BOOST_ROOT}")
+  else()
+    set(BOOST_ROOT "$ENV{CG_BOOST_ROOT}")
+  endif()
+  # manually add "SYSTEM" include directory to prevent make from checking all headers before compiling
+  add_compile_options(-I\"${BOOST_ROOT}\")
+  add_compile_options(-I\"${BOOST_ROOT}/boost/tr1/tr1\")
+endif()
+if(MSVC)
+  add_compile_options(/std:c++latest)
+endif()
+#optional example
+add_executable(optional_example optional.cpp)

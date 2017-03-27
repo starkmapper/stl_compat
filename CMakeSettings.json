@@ -1,0 +1,53 @@
+{
+    // See https://go.microsoft.com//fwlink//?linkid=834763 for more information about this file.
+  "configurations": [
+    {
+      "name": "bcc32-Release",
+      "generator": "Borland Makefiles",
+      "configurationType": "Release",
+      "buildRoot": "${workspaceRoot}\\build\\${name}",
+      "cmakeCommandArgs": "-DCG_BOOST_ROOT=\"C:\\Program Files (x86)\\Embarcadero\\Studio\\18.0\\\\include\\boost_1_39\"",
+      "buildCommandArgs": ""
+    },
+    {
+      "name": "bcc32-Debug",
+      "generator": "Borland Makefiles",
+      "configurationType": "Debug",
+      "buildRoot": "${workspaceRoot}\\build\\${name}",
+      "cmakeCommandArgs": "-DCG_BOOST_ROOT=\"C:\\Program Files (x86)\\Embarcadero\\Studio\\18.0\\\\include\\boost_1_39\"",
+      "buildCommandArgs": ""
+    },
+    {
+      "name": "x86-Debug",
+      "generator": "Visual Studio 15 2017",
+      "configurationType": "Debug",
+      "buildRoot": "${workspaceRoot}\\build\\${name}",
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "-m -v:minimal"
+    },
+    {
+      "name": "x86-Release",
+      "generator": "Visual Studio 15 2017",
+      "configurationType": "Release",
+      "buildRoot": "${workspaceRoot}\\build\\${name}",
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "-m -v:minimal"
+    },
+    {
+      "name": "x64-Debug",
+      "generator": "Visual Studio 15 2017 Win64",
+      "configurationType": "Debug",
+      "buildRoot": "${workspaceRoot}\\build\\${name}",
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "-m -v:minimal"
+    },
+    {
+      "name": "x64-Release",
+      "generator": "Visual Studio 15 2017 Win64",
+      "configurationType": "Release",
+      "buildRoot": "${workspaceRoot}\\build\\${name}",
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "-m -v:minimal"
+    }
+  ]
+}
