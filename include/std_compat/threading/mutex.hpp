@@ -5,7 +5,7 @@
 #if cpp11
   #include <mutex>
   #define mutex_namespace std
-  #define lock_namespace std;
+  #define lock_namespace std
 #endif
   #include <boost/thread/mutex.hpp>
   #include <boost/thread/recursive_mutex.hpp>
