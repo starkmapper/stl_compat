@@ -30,3 +30,7 @@
 
 #cmake build dir
 build/
+
+#VS tmp dirs
+.vs
+.vscode
