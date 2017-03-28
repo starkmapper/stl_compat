@@ -12,7 +12,7 @@ namespace
     cv->wait(lock);
     done = true;
   }
-  class fixture : public ::hayai::Fixture
+  class condition_variable : public ::hayai::Fixture
   {
   public:
     virtual void SetUp()
@@ -34,8 +34,12 @@ namespace
     volatile bool done;
 
   };
-  BENCHMARK_F(fixture, notifyOne, 100, 10000)
+  BENCHMARK_F(condition_variable, notifyOne, 100, 10000)
   {
     cv.notify_one();
   }
 }
+  BENCHMARK_F(condition_variable, notifyOne, 100, 10000)
+  {
+
+  }  
