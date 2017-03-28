@@ -6,7 +6,9 @@
    #include <thread>
   #define thread_namespace std
 #else
+  #pragma warn -8128
   #include <boost/thread.hpp>
+  #pragma warn .8128
   #define thread_namespace boost
 namespace boost
 {

@@ -3,7 +3,7 @@
 #include <std_compat/thread>
 #include <std_compat/mutex>
 #include <std_compat/condition_variable>
-
+#include <std_compat/chrono>
 std::mutex m;
 std_compat::condition_variable cv;
 std::string data;
@@ -48,11 +48,14 @@ public:
 std_compat::condition_variable cv2;
 std::mutex cv_m;
 int i;
-
+bool IsIOne()
+{
+  return i == 1;
+}
 void waits(int idx)
 {
   std::unique_lock<std::mutex> lk(cv_m);
-  if (cv2.wait_for(lk, std::chrono::milliseconds(idx * 100), [] {return i == 1; }))
+  if (cv2.wait_for(lk, std::chrono::milliseconds(idx * 100), IsIOne))
     std::cerr << "Thread " << idx << " finished waiting. i == " << i << '\n';
   else
     std::cerr << "Thread " << idx << " timed out. i == " << i << '\n';
