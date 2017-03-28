@@ -8,6 +8,7 @@ namespace
   void waiting_thread(std_compat::condition_variable *cv, std::mutex *m, volatile bool &done)
   {
     std::unique_lock<std::mutex> lock(*m);
+    cv->notify_one();
     cv->wait(lock);
     done = true;
   }
@@ -17,13 +18,14 @@ namespace
     virtual void SetUp()
     {
       done = false;
+      std::unique_lock<std::mutex> lock(m);
       t1 = std::thread(waiting_thread, &cv, &m, done);
-      std::this_thread::sleep_for(std::chrono::milliseconds(1));
+      cv.wait(lock);
     }
 
     virtual void TearDown()
     {
-
+      t1.join();
     }
     std::thread t1;
     std::thread t2;
@@ -32,9 +34,8 @@ namespace
     volatile bool done;
 
   };
-  BENCHMARK_F(fixture, notifyOne, 10, 10000)
+  BENCHMARK_F(fixture, notifyOne, 100, 10000)
   {
     cv.notify_one();
-    t1.join();
   }
 }
