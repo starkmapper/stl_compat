@@ -16,7 +16,7 @@ if(BORLAND)
   add_compile_options(-I\"${BOOST_ROOT}/boost/tr1/tr1\")
 endif()
 if(MSVC)
-  add_compile_options(/std:c++latest)
+  #add_compile_options(/std:c++14)
 endif()
 
 file(GLOB BENCHMARK_SOURCES ./*.cpp)
