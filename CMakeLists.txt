@@ -3,4 +3,6 @@ project(stl_compat )
 SET(CMAKE_BUILD_TYPE Release)
 
 include_directories(./)
+add_subdirectory(hayai)
 add_subdirectory(example)
+add_subdirectory(test)
