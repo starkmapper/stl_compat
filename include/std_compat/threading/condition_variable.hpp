@@ -7,6 +7,7 @@
   #pragma warn -8128
   #include <boost/thread/condition_variable.hpp>
   #include "mutex.hpp"
+  #include "utilities/chrono.hpp"
   #pragma warn .8128
 #endif
 
@@ -15,12 +16,18 @@ namespace std_compat
 #if cpp11
   using std::condition_variable;
   using std::condition_variable_any;
+  using std::cv_status;
 #else
+  enum class cv_status
+  {
+    timeout,
+    no_timeout
+  };
   class condition_variable : public boost::condition_variable
   {
   public:
     template<typename duration_type> 
-    bool wait_for(unique_lock<mutex>& lock, duration_type const& rel_time)
+    cv_status wait_for(unique_lock<mutex>& lock, duration_type const& rel_time)
     {
       return timed_wait(lock, rel_time);
     }
@@ -35,7 +42,7 @@ namespace std_compat
   {
   public:
     template<typename duration_type>
-    bool wait_for(unique_lock<mutex>& lock, duration_type const& rel_time)
+    cv_status wait_for(unique_lock<mutex>& lock, duration_type const& rel_time)
     {
       return timed_wait(lock, rel_time);
     }
@@ -47,4 +54,11 @@ namespace std_compat
   };
 #endif
 }
+
+#if !cpp11
+namespace std
+{
+  using std_compat::cv_status;
+}
+#endif
 #endif
