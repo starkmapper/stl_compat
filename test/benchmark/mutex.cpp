@@ -1,5 +1,8 @@
+#pragma hdrstop
+
 #include <hayai.hpp>
 #include <std_compat/mutex>
+
 namespace
 {
   class fixture :   public ::hayai::Fixture

@@ -1,3 +1,5 @@
+#pragma hdrstop
+
 #include <iostream>
 #include <string>
 #include <std_compat/thread>

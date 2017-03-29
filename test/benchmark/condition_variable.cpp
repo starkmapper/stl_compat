@@ -5,12 +5,12 @@
 
 namespace
 {
-  void waiting_thread(std_compat::condition_variable *cv, std::mutex *m, volatile bool &done)
+  void waiting_thread(std_compat::condition_variable *cv, std::mutex *m, volatile bool *done)
   {
     std::unique_lock<std::mutex> lock(*m);
     cv->notify_one();
     cv->wait(lock);
-    done = true;
+    *done = true;
   }
   class condition_variable : public ::hayai::Fixture
   {
@@ -19,7 +19,7 @@ namespace
     {
       done = false;
       std::unique_lock<std::mutex> lock(m);
-      t1 = std::thread(waiting_thread, &cv, &m, done);
+      t1 = std::thread(waiting_thread, &cv, &m, &done);
       cv.wait(lock);
     }
 
@@ -39,7 +39,3 @@ namespace
     cv.notify_one();
   }
 }
-  BENCHMARK_F(condition_variable, notifyOne, 100, 10000)
-  {
-
-  }  
