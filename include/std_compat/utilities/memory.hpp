@@ -9,8 +9,8 @@
 #else
   #if cpp03
   // TR1 includes unique_ptr in std
-    #include <tr1/memory>
-    #define unique_namespace std  
+    #include <boost/tr1/tr1/memory>
+    #define unique_namespace std
     #define ptr_namespace boost
   #endif
   #include <boost/shared_ptr.hpp>
