@@ -1,5 +1,3 @@
-#pragma hdrstop
-
 #ifndef condition_variable_HPP
   #define condition_variable_HPP
   #include "../helper/cppversion_detection.hpp"
