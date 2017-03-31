@@ -9,6 +9,7 @@ add_library(stl_compat INTERFACE)
 target_include_directories(stl_compat INTERFACE include)
 if(BORLAND)
 	target_link_libraries(stl_compat INTERFACE boost)
+	target_link_libraries(stl_compat INTERFACE boost_thread)
 endif()
 
 if(NOT TARGET hayai_main)
