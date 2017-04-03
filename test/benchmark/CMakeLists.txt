@@ -13,6 +13,6 @@ endif()
 file(GLOB BENCHMARK_SOURCES ./*.cpp)
 
 add_executable(BenchmarkSuite ${BENCHMARK_SOURCES})
-target_link_libraries(BenchmarkSuite stl_compat hayai_main)
+target_link_libraries(BenchmarkSuite PUBLIC stl_compat PUBLIC hayai_main)
 
 add_test(NAME BenchmarkSuite COMMAND BenchmarkSuite --output junit:BenchmarkSuite.results.xml)

@@ -5,11 +5,11 @@ if (BORLAND)
   include(Borland.cmake)
 
   add_library(boost INTERFACE)
-  target_compile_options(boost INTERFACE -I\"${BOOST_ROOT}\")
-  target_compile_options(boost INTERFACE -DBOOST_THREAD_USE_LIB)
+  target_include_directories(boost SYSTEM INTERFACE "${BOOST_ROOT}")
+  target_compile_definitions(boost INTERFACE BOOST_THREAD_USE_LIB)
 
   add_library(boost_tr1 INTERFACE)
   target_link_libraries(boost_tr1 INTERFACE boost)
-  target_compile_options(boost_tr1 INTERFACE -I\"${BOOST_ROOT}/boost/tr1/tr1\")
+  target_include_directories(boost_tr1 SYSTEM INTERFACE "${BOOST_ROOT}/boost/tr1/tr1")
 
 endif()
