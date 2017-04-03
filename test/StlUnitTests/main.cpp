@@ -1,0 +1,39 @@
+#pragma hdrstop
+#pragma argsused
+
+#ifdef _WIN32
+#include <tchar.h>
+#else
+typedef char _TCHAR;
+#define _tmain main
+#endif
+
+#include "TestBase.h"
+
+#include <stdio.h>
+#include <conio.h>
+int _tmain(int argc, _TCHAR* argv[])
+{
+  // Set project title
+  TDOG_SET_PROJECT_NAME("Orbit StlUnitTests");
+  //TDOG_SET_PROJECT_VERSION(TDOG_LIB_VERSION);
+  //TDOG_SET_PROJECT_DESC("Something something Orbit stuff");
+
+  // Define the report style
+  TDOG_SET_DEFAULT_REPORT(tdog::RS_TEXT_SUMMARY);
+
+  // Additional reports
+  TDOG_ADD_REPORT(tdog::RS_TEXT_VERBOSE, "./StlUnitTests.report.txt");
+  TDOG_ADD_REPORT(tdog::RS_HTML_SUMMARY, "./StlUnitTests.summary.html");
+  TDOG_ADD_REPORT(tdog::RS_HTML_VERBOSE, "./StlUnitTests.report.html");
+  TDOG_ADD_REPORT(tdog::RS_XML, "./StlUnitTests.report.xml");
+
+  // Run the tests
+  // Returns zero on success
+  int out = TDOG_RUN_CMD(argc, argv, true);
+#ifdef _DEBUG
+  // no need to set breakpoint to keep window open in DEBUG
+  getch();
+#endif
+  return out;
+}
