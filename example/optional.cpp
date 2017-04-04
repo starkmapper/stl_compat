@@ -56,3 +56,5 @@ int main()
 
   return size;
 }
+
+extern "C" void tss_cleanup_implemented() { }

@@ -29,3 +29,5 @@ int main()
 
   std::cout << "done!\n";
 }
+
+extern "C" void tss_cleanup_implemented() { }

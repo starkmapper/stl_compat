@@ -101,7 +101,9 @@ int main()
 
   worker.join();
   std::cout << "Running wait_for" << std::endl;
-  
+
   std::thread t1(waits, 1), t2(waits, 2), t3(waits, 3), t4(signals);
   t1.join(); t2.join(), t3.join(), t4.join();
 }
+
+extern "C" void tss_cleanup_implemented() { }
