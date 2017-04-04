@@ -4,7 +4,7 @@
 #define nullptr NULL
 #define emplace_back push_back
 #define override
-#define final 
+#define my_final 
 #endif
 #if cpp11
 #define foreach(A,B) for(A:B)
