@@ -1,4 +1,5 @@
-#include <hayai.hpp>
+#pragma hdrstop
+#include "TestBase.h"
 #include <std_compat/condition_variable>
 #include <std_compat/thread>
 #include <std_compat/chrono>

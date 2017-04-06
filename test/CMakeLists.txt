@@ -2,16 +2,28 @@ cmake_minimum_required(VERSION 2.6)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/tests)
 
-add_subdirectory(benchmark)
-#add_subdirectory(unit_test)
-
 if(TARGET tdog)
-
-# Core UnitTests Suite
+# Stl UnitTests Suite
+set(TEST_TARGET StlUnitTestSuite)
 file(GLOB_RECURSE UNITTEST_SOURCES StlUnitTests/*.cpp StlUnitTests/*.h)
-add_executable(StlUnitTests ${UNITTEST_SOURCES})
-target_orbit_options(StlUnitTests)
-target_include_directories(StlUnitTests PUBLIC .)
-target_link_libraries(StlUnitTests PUBLIC tdog PUBLIC stl_compat)
+add_executable(${TEST_TARGET} ${UNITTEST_SOURCES})
+target_orbit_options(${TEST_TARGET})
+target_compile_definitions(${TEST_TARGET} PRIVATE "TEST_TARGET=${TEST_TARGET}")
+target_link_libraries(${TEST_TARGET} PUBLIC tdog PUBLIC stl_compat)
 
+add_test(NAME ${TEST_TARGET}
+         COMMAND $<TARGET_FILE:${TEST_TARGET}>)
 endif()
+
+# Stl Benchmark Suite
+set(TEST_TARGET StlBenchmarkSuite)
+file(GLOB_RECURSE BENCHMARK_SOURCES StlBenchmarks/*.cpp StlBenchmarks/*.h)
+add_executable(${TEST_TARGET} ${BENCHMARK_SOURCES})
+target_orbit_options(${TEST_TARGET})
+target_compile_definitions(${TEST_TARGET} PRIVATE "TEST_TARGET=${TEST_TARGET}")
+target_include_directories(${TEST_TARGET} PUBLIC ../hayai/src)
+target_link_libraries(${TEST_TARGET} PUBLIC hayai_main PUBLIC stl_compat)
+
+add_test(NAME ${TEST_TARGET}
+         COMMAND $<TARGET_FILE:${TEST_TARGET}> --output junit:${TEST_TARGET}.results.xml
+         WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})

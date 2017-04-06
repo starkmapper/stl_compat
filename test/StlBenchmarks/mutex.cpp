@@ -1,6 +1,5 @@
 #pragma hdrstop
-
-#include <hayai.hpp>
+#include "TestBase.h"
 #include <std_compat/mutex>
 
 namespace
