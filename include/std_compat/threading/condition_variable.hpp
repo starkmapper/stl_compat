@@ -29,7 +29,7 @@ namespace std_compat
     template<typename duration_type> 
     cv_status wait_for(unique_lock<mutex>& lock, duration_type const& rel_time)
     {
-      return timed_wait(lock, rel_time);
+      return timed_wait(lock, rel_time) ? cv_status::no_timeout : cv_status::timeout;
     }
     template<typename duration_type, typename predicate_type>
     bool wait_for(unique_lock<mutex>& lock, duration_type const& rel_time, predicate_type predicate)
