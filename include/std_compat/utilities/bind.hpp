@@ -2,6 +2,8 @@
 #define std_compat_bindH
 #include "../helper/cppversion_detection.hpp"
 
+#include "functional.hpp"
+
 #if cpp11
 #include <bind>
 namespace std_compat
