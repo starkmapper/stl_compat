@@ -1,13 +1,13 @@
 #pragma hdrstop
 #include "../TestBase.h"
 
-#include <std_compat/bind>
+#include <std_compat/functional>
 
 using namespace std;
 
 TDOG_SUITE(stl_compat)
 {
-  TDOG_SUITE(bind)
+  TDOG_SUITE(functional)
   {
     struct bindFixture
     {

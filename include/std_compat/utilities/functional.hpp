@@ -8,16 +8,20 @@ namespace std_compat
 {
   using std::function;
 }
+using namespace std::placeholders;
 #else
 #include <boost/function.hpp>
+#include <boost/bind.hpp>
 namespace std_compat
 {
   using boost::function;
+  using boost::bind;
   // TODO: boost has no 'empty()' function.
 }
 namespace std
 {
-  using std_compat::function;
+  using boost::function;
+  using boost::bind;
 }
 #endif
 
