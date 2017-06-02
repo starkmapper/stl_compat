@@ -1,0 +1,23 @@
+function(target_options target)
+  get_target_property(_target_type ${target} TYPE)
+
+  target_include_directories(${target} PRIVATE "${PROJECT_SOURCE_DIR}")
+  target_include_directories(${target} PRIVATE ${CMAKE_SOURCE_DIR})
+  if(BORLAND)
+    target_compile_options(${target} PRIVATE -w-par PRIVATE -w! PRIVATE -v)
+    #target_compile_options(${target} PRIVATE -w-par PRIVATE -w! PRIVATE -v PRIVATE -O2)
+    target_link_libraries(${target} LINK_PRIVATE -lv) # TODO: -P4096 on master
+    if (_target_type STREQUAL "EXECUTABLE")
+      target_link_libraries(${target} PRIVATE -tV)
+    endif()
+  endif()
+  if(MSVC)
+    #target_compile_options(${target} PUBLIC -O2)
+    target_link_libraries(${target} PUBLIC -DEBUG:FULL)
+    target_compile_options(${target} PUBLIC "/std:c++latest")
+  endif()
+
+  if (BORLAND AND TDS2PDB AND (_target_type STREQUAL "EXECUTABLE") AND NOT NO_TDS2PDB)
+    add_custom_command(TARGET ${target} POST_BUILD COMMAND ${TDS2PDB} ARGS "$<TARGET_FILE:${target}>")
+  endif()
+endfunction(target_options)

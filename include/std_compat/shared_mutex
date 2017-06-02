@@ -1,0 +1,7 @@
+#ifdef __BORLANDC__
+#pragma option push -O2
+#endif
+#include "threading/shared_mutex.hpp"
+#ifdef __BORLANDC__
+#pragma option pop
+#endif

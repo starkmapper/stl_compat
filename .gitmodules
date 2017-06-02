@@ -1,3 +1,6 @@
 [submodule "hayai"]
 	path = hayai
 	url = http://tfs.imtechmarine.com:8080/tfs/DefaultCollection/FTNAVVISION/_git/hayai
+[submodule "tdog"]
+	path = tdog
+	url = http://tfs.imtechmarine.com:8080/tfs/DefaultCollection/FTNAVVISION/_git/tdog

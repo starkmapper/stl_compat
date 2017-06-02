@@ -20,6 +20,9 @@ namespace std_compat
 {
   using mutex_namespace::mutex;
   using mutex_namespace::recursive_mutex;
+  using mutex_namespace::defer_lock_t;
+  using mutex_namespace::try_to_lock_t;
+  using mutex_namespace::adopt_lock_t;
   using lock_namespace::unique_lock;
   using lock_namespace::lock_guard;
 }
@@ -31,6 +34,9 @@ namespace std
   using std_compat::recursive_mutex;
   using std_compat::unique_lock;
   using std_compat::lock_guard;
+  using std_compat::defer_lock_t;
+  using std_compat::try_to_lock_t;
+  using std_compat::adopt_lock_t;
 }
 #endif
 
