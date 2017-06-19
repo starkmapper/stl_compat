@@ -16,12 +16,16 @@ namespace std_compat
 {
   using boost::function;
   using boost::bind;
+  using boost::ref;
+  using boost::cref;
   // TODO: boost has no 'empty()' function.
 }
 namespace std
 {
   using boost::function;
   using boost::bind;
+  using boost::ref;
+  using boost::cref;
 }
 #endif
 
