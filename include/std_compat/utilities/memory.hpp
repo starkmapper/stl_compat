@@ -17,6 +17,7 @@
   #include <boost/weak_ptr.hpp>
   #include <boost/make_shared.hpp>
   #include <boost/enable_shared_from_this.hpp>
+  #include <boost/pointer_cast.hpp>
 #endif
 
 namespace std_compat
@@ -27,6 +28,10 @@ namespace std_compat
   using ptr_namespace::make_shared;
   using ptr_namespace::allocate_shared;
   using ptr_namespace::enable_shared_from_this;
+  using ptr_namespace::static_pointer_cast;
+  using ptr_namespace::dynamic_pointer_cast;
+  using ptr_namespace::const_pointer_cast;
+  using ptr_namespace::reinterpret_pointer_cast;
 }
 #if !cpp11
 namespace std
@@ -37,6 +42,10 @@ namespace std
   using std_compat::make_shared;
   using std_compat::allocate_shared;
   using std_compat::enable_shared_from_this;
+  using std_compat::static_pointer_cast;
+  using std_compat::dynamic_pointer_cast;
+  using std_compat::const_pointer_cast;
+  using std_compat::reinterpret_pointer_cast;
 }
 #endif
 
