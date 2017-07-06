@@ -1,3 +1,4 @@
+#pragma hdrstop
 #include <std_compat/thread>
 #include <std_compat/memory>
 #include <iostream>

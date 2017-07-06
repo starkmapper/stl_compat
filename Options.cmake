@@ -14,7 +14,6 @@ function(target_options target)
   if(MSVC)
     #target_compile_options(${target} PUBLIC -O2)
     target_link_libraries(${target} PUBLIC -DEBUG:FULL)
-    target_compile_options(${target} PUBLIC "/std:c++latest")
   endif()
 
   if (BORLAND AND TDS2PDB AND (_target_type STREQUAL "EXECUTABLE") AND NOT NO_TDS2PDB)

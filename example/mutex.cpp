@@ -1,3 +1,4 @@
+#pragma hdrstop
 #include <iostream>
 #include <map>
 #include <string>
