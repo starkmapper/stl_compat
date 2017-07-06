@@ -3,13 +3,13 @@
 	#if __BORLANDC__
 		#define cpp03 1
 	#endif
-	#if __cplusplus >= 201103L || _MSC_VER >= 1900
+	#if __cplusplus >= 201103L || _MSVC_LANG >= 201103L
 		#define cpp11 1
 	#endif
-	#if __cplusplus >= 201402 || _MSC_VER > 1900
+	#if __cplusplus >= 201402 || _MSVC_LANG >= 201402
 		#define cpp14 1
 	#endif
-	#if __cplusplus >= 201500 || _MSC_VER > 1900
+	#if __cplusplus >= 201500 || _MSVC_LANG > 201402
 		#define cpp17 1
 	#endif
 

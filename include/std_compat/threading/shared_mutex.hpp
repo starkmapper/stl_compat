@@ -5,24 +5,31 @@
 
 #if cpp17
   #include <shared_mutex>
-  #define mutex_namespace std
-  #define lock_namespace std
+  #define shared_mutex_namespace std
+  #define shared_lock_namespace std
+#elif cpp11
+  #include "detail/shared_mutex.hpp"
+  #include "detail/shared_mutex.cpp"
+  #define shared_mutex_namespace ting
+  #define shared_lock_namespace ting
 #else
+#ifdef __BORLANDC__
   #include "../boost/thread/win32/basic_timed_mutex.hpp"
+#endif
   #include <boost/thread/shared_mutex.hpp>
   #include <boost/thread/locks.hpp>
-  #define mutex_namespace boost
-  #define lock_namespace boost
+  #define shared_mutex_namespace boost
+  #define shared_lock_namespace boost
 #endif
 
 
 namespace std_compat
 {
-  using mutex_namespace::shared_mutex;
-  using lock_namespace::shared_lock;
+  using shared_mutex_namespace::shared_mutex;
+  using shared_lock_namespace::shared_lock;
 }
 
-#if !cpp17
+#if !cpp11
 namespace std
 {
   using std_compat::shared_mutex;

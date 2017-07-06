@@ -31,7 +31,6 @@ namespace std_compat
   using ptr_namespace::static_pointer_cast;
   using ptr_namespace::dynamic_pointer_cast;
   using ptr_namespace::const_pointer_cast;
-  using ptr_namespace::reinterpret_pointer_cast;
 }
 #if !cpp11
 namespace std
@@ -45,7 +44,6 @@ namespace std
   using std_compat::static_pointer_cast;
   using std_compat::dynamic_pointer_cast;
   using std_compat::const_pointer_cast;
-  using std_compat::reinterpret_pointer_cast;
 }
 #endif
 
