@@ -5,8 +5,12 @@
 #undef TDOG_COUNTER_ID
 #define TDOG_COUNTER_ID BOOST_PP_COUNTER
 #endif
+#ifdef __BORLANDC__
 #pragma warn -8104
+#endif
 #include "tdog.hpp"
+#ifdef __BORLANDC__
 #pragma warn .8104
+#endif
 #include <string>
 #include <memory>
