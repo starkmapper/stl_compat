@@ -59,6 +59,7 @@ namespace std_compat
 namespace std
 {
   using std_compat::cv_status;
+  using std_compat::condition_variable;
 }
 #endif
 #endif
