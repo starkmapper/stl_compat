@@ -13,11 +13,19 @@
     #define unique_namespace std
     #define ptr_namespace boost
   #endif
+  #ifndef WIN32_LEAN_AND_MEAN
+    #define WIN32_LEAN_AND_MEAN
+    #define WIN32_LEAN_AND_MEAN_UNDEF
+  #endif
   #include <boost/shared_ptr.hpp>
   #include <boost/weak_ptr.hpp>
   #include <boost/make_shared.hpp>
   #include <boost/enable_shared_from_this.hpp>
   #include <boost/pointer_cast.hpp>
+  #ifdef WIN32_LEAN_AND_MEAN_UNDEF
+    #undef WIN32_LEAN_AND_MEAN
+    #undef WIN32_LEAN_AND_MEAN_UNDEF
+  #endif
 #endif
 
 namespace std_compat
