@@ -9,9 +9,11 @@ include(./Options.cmake)
 
 add_subdirectory(rtl)
 
+add_library(tss_null src/tss_null.cpp)
 add_library(stl_compat INTERFACE)
 target_include_directories(stl_compat INTERFACE include)
-target_link_libraries(stl_compat INTERFACE boost)
+target_link_libraries(stl_compat INTERFACE boost INTERFACE tss_null)
+
 
 if(NOT TARGET hayai_main)
   add_subdirectory(hayai)
