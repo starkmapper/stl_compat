@@ -12,7 +12,7 @@ file(GLOB example_sources RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ./*.cpp)
 foreach(example_src ${example_sources})
   string(REPLACE ".cpp" "" example_name ${example_src})
   #message(STATUS "  Creating project ${example_name}")
-  add_executable(${example_name} ${example_src})
+  add_executable(${example_name} EXCLUDE_FROM_ALL ${example_src})
   target_link_libraries(${example_name} PUBLIC stl_compat)
 endforeach(example_src)
 #optional example

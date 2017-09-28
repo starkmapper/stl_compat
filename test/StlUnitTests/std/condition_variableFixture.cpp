@@ -102,6 +102,8 @@ TDOG_SUITE(stl_compat)
         cv->notify_one();
 
       }
+
+      td.join();
     }
 
     TDOG_TEST_FIXTURE(ShouldNotTriggerOnVariableSnapshot, condition_variableFixture)
@@ -116,6 +118,9 @@ TDOG_SUITE(stl_compat)
 
       TDOG_ASSERT_EQ(2, count);
       TDOG_ASSERT_NOT(status);
+
+      td1.join();
+      td2.join();
     }
 
     TDOG_TEST_FIXTURE(ShouldTriggerOnVariableReference, condition_variableFixture)
@@ -130,6 +135,9 @@ TDOG_SUITE(stl_compat)
 
       TDOG_ASSERT_EQ(2, count);
       TDOG_ASSERT(status);
+
+      td1.join();
+      td2.join();
     }
 
     TDOG_CLOSE_SUITE

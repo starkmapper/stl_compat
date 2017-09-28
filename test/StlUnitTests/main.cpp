@@ -35,10 +35,5 @@ int _tmain(int argc, _TCHAR* argv[])
 
   // Run the tests
   // Returns zero on success
-  int out = TDOG_RUN_CMD(argc, argv, true);
-#ifdef _DEBUG
-  // no need to set breakpoint to keep window open in DEBUG
-  getch();
-#endif
-  return out;
+  return TDOG_RUN_CMD(argc, argv, true);
 }
