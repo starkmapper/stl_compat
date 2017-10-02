@@ -21,7 +21,7 @@ TDOG_SUITE(stl_compat)
 
       void teardown()
       {
-        UniqueLock lk1(*mtx);
+        threadList.Clear();
         mtx.reset();
       }
     protected:
@@ -63,6 +63,7 @@ TDOG_SUITE(stl_compat)
             t->join();
             delete t;
           }
+          threads.clear();
         }
         void Add(std::thread *thread)
         {
