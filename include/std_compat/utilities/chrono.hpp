@@ -8,6 +8,7 @@
 #else
   #include <boost/date_time/posix_time/posix_time_types.hpp>
   #define chrono_namespace boost::posix_time
+  #include "chrono/chrono_boost_wrapper.hpp"
 #endif
 
 namespace std_compat
