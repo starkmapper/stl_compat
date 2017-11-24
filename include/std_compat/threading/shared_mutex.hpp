@@ -30,8 +30,10 @@ namespace std_compat
 }
 namespace std
 {
+#ifndef _MSC_VER
 #if !cpp17
   using std_compat::shared_mutex;
+#endif
 #endif
 #if !cpp11
   using std_compat::shared_lock;
