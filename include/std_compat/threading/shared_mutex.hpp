@@ -28,13 +28,14 @@ namespace std_compat
   using shared_mutex_namespace::shared_mutex;
   using shared_lock_namespace::shared_lock;
 }
-
-#if !cpp11
 namespace std
 {
+#if !cpp17
   using std_compat::shared_mutex;
-  using std_compat::shared_lock;
-}
 #endif
+#if !cpp11
+  using std_compat::shared_lock;
+#endif
+}
 
 #endif
