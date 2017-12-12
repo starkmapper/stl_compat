@@ -62,4 +62,12 @@ namespace std
 
 #endif
 
+
+#ifdef __BORLANDC__
+static void __fix_boost_8080_warnings_optional()
+{
+    (void)(boost::none);
+}
+#endif
+
 #endif

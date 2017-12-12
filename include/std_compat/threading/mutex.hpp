@@ -40,4 +40,14 @@ namespace std
 }
 #endif
 
+#ifdef __BORLANDC__
+static void __fix_boost_8080_warnings_mutex()
+{
+    (void)(boost::detail::win32::invalid_handle_value);
+    (void)(boost::defer_lock);
+    (void)(boost::try_to_lock);
+    (void)(boost::adopt_lock);
+}
+#endif
+
 #endif
