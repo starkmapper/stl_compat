@@ -40,7 +40,7 @@ namespace std_compat
     {
     public:
       typedef duration<long long, std::nano> duration;
-      
+
       struct time_point
       {
         boost::posix_time::ptime ptime;
@@ -54,8 +54,17 @@ namespace std_compat
         {
           return duration((ptime - other.ptime).total_nanoseconds());
         }
+        template<class Duration>
+        time_point operator +(Duration d)
+        {
+          return ptime + d;
+        }
+        bool operator <(time_point const & other)
+        {
+          return (ptime < other.ptime);
+        }
       };
-		
+
       static time_point now()
       {
         return time_point(boost::posix_time::microsec_clock::local_time());
