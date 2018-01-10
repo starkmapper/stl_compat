@@ -8,7 +8,7 @@ TDOG_SUITE(stl_compat)
   TDOG_SUITE(enable_shared_from_this)
   {
 
-    class TestDtor : public std::enable_shared_from_this<TestDtor>
+    class TestDtor : public std_compat::enable_shared_from_this<TestDtor>
     {
     public:
       static bool hasSharedCtor;
