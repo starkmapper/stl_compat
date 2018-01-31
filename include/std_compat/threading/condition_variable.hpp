@@ -5,8 +5,8 @@
   #include <condition_variable>
 #else
   #pragma warn -8128
-  #include <boost/thread/condition_variable.hpp>
   #include "mutex.hpp"
+  #include <boost/thread/condition_variable.hpp>
   #include "utilities/chrono.hpp"
   #pragma warn .8128
 #endif

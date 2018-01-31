@@ -7,6 +7,9 @@
   #define mutex_namespace std
   #define lock_namespace std
 #else
+  #if defined(BOOST_BASIC_TIMED_MUTEX_WIN32_HPP) && !defined(BOOST_BASIC_TIMED_MUTEX_WIN32_HPP_PERFORMANCE_FIXED)
+    #error std_compat::mutex is incompatible with boost::mutex, please use one or the other.
+  #endif
   #include "../boost/thread/win32/basic_timed_mutex.hpp"
   #include <boost/thread/mutex.hpp>
   #include <boost/thread/recursive_mutex.hpp>
