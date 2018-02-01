@@ -43,7 +43,7 @@ namespace std
 }
 #endif
 
-#ifdef __BORLANDC__
+#if defined(__BORLANDC__) && !defined(__clang__)
 static void __fix_boost_8080_warnings_mutex()
 {
     (void)(boost::detail::win32::invalid_handle_value);
