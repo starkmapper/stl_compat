@@ -1,5 +1,5 @@
-#ifndef cmathHPP
-#define cmathHPP
+#ifndef std_compat_cmathHPP
+#define std_compat_cmathHPP
 
 #include "../helper/cppversion_detection.hpp"
 
