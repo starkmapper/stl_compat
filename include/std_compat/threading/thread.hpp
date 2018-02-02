@@ -7,6 +7,8 @@
   #define thread_namespace std
 #else
   #pragma warn -8128
+  // forward include "our" mutex header to make sure we include the right basic_times_mutex thing.
+  #include "mutex.hpp"
   #include <boost/thread.hpp>
   #pragma warn .8128
   #define thread_namespace boost
@@ -34,7 +36,7 @@ namespace std_compat
   using thread_namespace::operator>;
   using thread_namespace::operator>=;
   using thread_namespace::operator<<;
-  
+
   namespace this_thread
   {
     using namespace thread_namespace::this_thread;
@@ -45,7 +47,7 @@ namespace std_compat
 namespace std
 {
   using std_compat::thread;
-  using std_compat::swap;  
+  using std_compat::swap;
   using std_compat::operator==;
   using std_compat::operator!=;
   using std_compat::operator<;
