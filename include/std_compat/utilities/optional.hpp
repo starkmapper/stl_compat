@@ -23,30 +23,30 @@ namespace std_compat
     template <class T>
     class optional: public boost::optional<T>
     {
-      typedef boost::optional<T> base;
+      typedef boost::optional<T> boost_base;
       public:
-      optional () : base() {}
-      optional ( T const& v ):base(v) {};
-      optional ( bool condition, T const& v ) : base(condition,v){}
-      optional ( optional const& rhs ): base(rhs) {}
+      optional () : boost_base() {}
+      optional ( T const& v ):boost_base(v) {};
+      optional ( bool condition, T const& v ) : boost_base(condition,v){}
+      optional ( optional const& rhs ): boost_base(static_cast<boost_base const &>(rhs)) {}
 
       T& value()
       {
          if (*this)
-          return base::get();
+          return boost_base::get();
         throw bad_optional_access();
       }
 
       T const & value() const
       {
         if (*this)
-          return base::get();
+          return boost_base::get();
         throw bad_optional_access();
       }
 
       T value_or( T const & def ) const
       {
-        return base::get_value_or(def);
+        return boost_base::get_value_or(def);
       }
     };
 
