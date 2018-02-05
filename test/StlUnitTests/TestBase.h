@@ -1,6 +1,6 @@
 
 // Borland doesn't support __COUNTER__ so we use the boost version instead.
-#if __BORLANDC__
+#if __BORLANDC__ && !defined(__clang__)
 #include <boost/preprocessor/slot/counter.hpp>
 #undef TDOG_COUNTER_ID
 #define TDOG_COUNTER_ID BOOST_PP_COUNTER
