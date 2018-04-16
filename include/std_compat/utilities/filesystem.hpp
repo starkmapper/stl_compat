@@ -3,6 +3,7 @@
 #include "../helper/cppversion_detection.hpp"
 
 #if cpp17
+#include <filesystem>
 namespace std_compat
 {
   namespace filesystem
