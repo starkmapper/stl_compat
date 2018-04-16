@@ -12,7 +12,11 @@ namespace std_compat
   }
 }
 #else
+#pragma warn -8104
+#pragma warn -8092
 #include <boost/filesystem.hpp>
+#pragma warn .8092
+#pragma warn .8104
 
 namespace std_compat
 {
