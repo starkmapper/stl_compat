@@ -40,7 +40,7 @@ namespace std
     template <typename T>
     path absolute(const path& p, T& ec)
     {
-      static_assert(false, "Not Supported in boost");
+      static_assert(std::is_same<T, std::false_type>::value, "Not Supported in boost");
     }
   }
 }
