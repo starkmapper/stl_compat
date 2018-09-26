@@ -70,7 +70,7 @@ add_library(boost INTERFACE)
 add_library(boost_libs INTERFACE)
 if(MSVC AND NOT BOOST_ROOT)
   ensure_nuget_package("Boost" ${boost_version})
-  set(BOOST_ROOT ${Boost_PACKAGE_DIR})
+  set(BOOST_ROOT ${Boost_PACKAGE_DIR}/lib/native/include CACHE PATH "Boost root.")
 endif()
 
 if(BOOST_ROOT)
