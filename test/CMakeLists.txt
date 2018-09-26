@@ -4,7 +4,6 @@ if(TARGET tdog)
 # Stl UnitTests Suite
 set(TEST_TARGET StlUnitTestSuite)
 file(GLOB_RECURSE UNITTEST_SOURCES StlUnitTests/*.cpp StlUnitTests/*.h)
-message(STATUS "UnitTestSources: ${UNITTEST_SOURCES}")
 add_executable(${TEST_TARGET} ${UNITTEST_SOURCES})
 target_options(${TEST_TARGET})
 target_compile_definitions(${TEST_TARGET} PRIVATE "TEST_TARGET=${TEST_TARGET}")
