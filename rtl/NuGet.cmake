@@ -29,9 +29,9 @@ function(ensure_nuget_packagedir)
 endfunction(ensure_nuget_packagedir)
 
 function(parse_additional_args)
-  cmake_parse_arguments(package_ "" "SOURCE" "" ${ARGN})
+  cmake_parse_arguments(package "" "SOURCE" "" ${ARGN})
   if(NOT "${package_SOURCE}" STREQUAL "")
-    set(additional_args "-source ${package_SOURCE}" PARENT_SCOPE)
+    set(additional_args -source ${package_SOURCE} PARENT_SCOPE)
   endif()
 endfunction(parse_additional_args)
 
