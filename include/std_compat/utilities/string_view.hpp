@@ -3,6 +3,7 @@
 #include "../helper/cppversion_detection.hpp"
 
 #if cpp17
+#include <string_view>
 namespace std_compat
 {
   using std::string_view;

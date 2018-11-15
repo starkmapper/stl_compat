@@ -53,28 +53,28 @@ namespace std_compat
     };
 
   public:
-    weak_ptr<_Ty> weak_from_this() _NOEXCEPT
+    weak_ptr<_Ty> weak_from_this() noexcept
     {	// return weak_ptr
       return ((WptrAccessor*)this)->_Wptr;
     }
 
-    weak_ptr<const _Ty> weak_from_this() const _NOEXCEPT
+    weak_ptr<const _Ty> weak_from_this() const noexcept
     {	// return weak_ptr
       return ((WptrAccessor*)this)->_Wptr;
     }
 
   protected:
-    constexpr enable_shared_from_this() _NOEXCEPT
+    constexpr enable_shared_from_this() noexcept
       : std::enable_shared_from_this<_Ty>()
     {	// construct
     }
 
-    enable_shared_from_this(const enable_shared_from_this&) _NOEXCEPT
+    enable_shared_from_this(const enable_shared_from_this&) noexcept
       : std::enable_shared_from_this<_Ty>()
     {	// construct (must value-initialize _Wptr)
     }
 
-    enable_shared_from_this& operator=(const enable_shared_from_this&) _NOEXCEPT
+    enable_shared_from_this& operator=(const enable_shared_from_this&) noexcept
     {	// assign (must not change _Wptr)
       return (*this);
     }
