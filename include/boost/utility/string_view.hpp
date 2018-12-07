@@ -154,7 +154,7 @@ namespace boost {
             return std::basic_string<charT, traits, Allocator>(begin(), end());
             }
 #endif
-
+/*
         std::basic_string<charT, traits> to_string() const {
             return std::basic_string<charT, traits>(begin(), end());
             }
@@ -163,7 +163,7 @@ namespace boost {
         std::basic_string<charT, traits, Allocator> to_string(const Allocator& a) const {
             return std::basic_string<charT, traits, Allocator>(begin(), end(), a);
             }
-
+*/
         size_type copy(charT* s, size_type n, size_type pos=0) const {
             if (pos > size())
                 BOOST_THROW_EXCEPTION(std::out_of_range("string_view::copy" ));
