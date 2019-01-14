@@ -6,10 +6,10 @@ function(download_nuget)
 endfunction(download_nuget)
 
 function(ensure_nuget_program)
-  find_program(nuget_program NAMES nuget)
+  find_program(nuget_program NAMES nuget PATHS ${CMAKE_BINARY_DIR})
   if(${nuget_program} STREQUAL "nuget_program-NOTFOUND")
     download_nuget()
-    find_program(nuget_program NAMES nuget)
+    find_program(nuget_program NAMES nuget PATHS ${CMAKE_BINARY_DIR})
   endif()
 endfunction(ensure_nuget_program)
 
