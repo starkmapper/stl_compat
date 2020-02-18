@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.6)
 if(TARGET tdog)
 # Stl UnitTests Suite
 set(TEST_TARGET StlUnitTestSuite)
-file(GLOB_RECURSE UNITTEST_SOURCES StlUnitTests/*.cpp StlUnitTests/*.h)
+file(GLOB_RECURSE UNITTEST_SOURCES CONFIGURE_DEPENDS StlUnitTests/*.cpp StlUnitTests/*.h)
 add_executable(${TEST_TARGET} ${UNITTEST_SOURCES})
 target_options(${TEST_TARGET})
 target_compile_definitions(${TEST_TARGET} PRIVATE "TEST_TARGET=${TEST_TARGET}")
@@ -15,7 +15,7 @@ endif()
 
 # Stl Benchmark Suite
 set(TEST_TARGET StlBenchmarkSuite)
-file(GLOB_RECURSE BENCHMARK_SOURCES StlBenchmarks/*.cpp StlBenchmarks/*.h)
+file(GLOB_RECURSE BENCHMARK_SOURCES CONFIGURE_DEPENDS StlBenchmarks/*.cpp StlBenchmarks/*.h)
 add_executable(${TEST_TARGET} ${BENCHMARK_SOURCES})
 target_options(${TEST_TARGET})
 target_compile_definitions(${TEST_TARGET} PRIVATE "TEST_TARGET=${TEST_TARGET}")

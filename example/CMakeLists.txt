@@ -7,7 +7,7 @@ if(BORLAND)
   link_libraries(-lv -ls -lq)
 endif()
 
-file(GLOB example_sources RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ./*.cpp)
+file(GLOB example_sources RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} CONFIGURE_DEPENDS ./*.cpp)
 #message(STATUS "generating example projects:")
 foreach(example_src ${example_sources})
   string(REPLACE ".cpp" "" example_name ${example_src})
